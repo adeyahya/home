@@ -6,20 +6,26 @@
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+		xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-  } @ inputs: let
+		...
+  }@inputs:
+	let
     inherit (self) outputs;
   in
   {
     nixosConfigurations = {
       os = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [./nixos/configuration.nix];
+        modules = [
+					./nixos/configuration.nix
+				];
       };
     };
 

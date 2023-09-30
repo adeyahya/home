@@ -2,13 +2,38 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+			inputs.xremap-flake.nixosModules.default
     ];
+
+	services.xremap = {
+		withHypr = true;
+		userName = "adeyahya";
+		config = {
+			keymap = [
+				{
+					name = "capslock esc";
+					remap = {
+						"CapsLock" = "Esc";
+					};
+				}
+				{
+					name = "vim navigation";
+					remap = {
+						"SUPER-J" = "down";
+						"SUPER-K" = "up";
+						"SUPER-H" = "left";
+						"SUPER-L" = "right";
+					};
+				}
+			];
+		};
+	};
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
