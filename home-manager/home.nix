@@ -60,7 +60,6 @@
   };
 
   home.packages = with pkgs; [
-    git
     curl
     wget
     tree
@@ -68,6 +67,7 @@
     neofetch
 		starship
 		lf
+		duf
   ];
 
   # Add stuff for your user as you see fit:
