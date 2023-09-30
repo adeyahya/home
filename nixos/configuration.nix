@@ -8,32 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-			inputs.xremap-flake.nixosModules.default
     ];
 
-	services.xremap = {
-		withHypr = true;
-		userName = "adeyahya";
-		config = {
-			keymap = [
-				{
-					name = "capslock esc";
-					remap = {
-						"CapsLock" = "Esc";
-					};
-				}
-				{
-					name = "vim navigation";
-					remap = {
-						"SUPER-J" = "down";
-						"SUPER-K" = "up";
-						"SUPER-H" = "left";
-						"SUPER-L" = "right";
-					};
-				}
-			];
-		};
-	};
+  # for xremap
+	hardware.uinput.enable = true;
+	users.groups.uinput.members = [ "adeyahya" ];
+	users.groups.input.members = [ "adeyahya" ];
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
