@@ -12,3 +12,7 @@ font:
   italic:
     family: "JetbrainsMono Nerd Font"
 
+window:
+  padding:
+    x: 10
+    y: 0

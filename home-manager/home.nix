@@ -46,7 +46,6 @@
 
   home.packages = with pkgs; [
     git
-    neovim
     curl
     wget
     tree
@@ -65,6 +64,12 @@
 		enable = true;
 		userName = "adeyahya";
 		userEmail = "adeyahyaprasetyo@gmail.com";
+	};
+	programs.neovim = {
+		enable = true;
+		defaultEditor = true;
+		viAlias = true;
+		vimAlias = true;
 	};
 
   # Nicely reload system units when changing configs
