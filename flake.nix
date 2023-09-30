@@ -8,6 +8,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
 		xremap-flake.url = "github:xremap/nix-flake";
+
+		# replacement for ls
+		eza.url = "github:eza-community/eza";
   };
 
   outputs = {

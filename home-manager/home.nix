@@ -68,6 +68,7 @@
 		starship
 		lf
 		duf
+		eza
   ];
 
   # Add stuff for your user as you see fit:
