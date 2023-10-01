@@ -14,22 +14,22 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-		inputs.xremap-flake.homeManagerModules.default
+    inputs.xremap-flake.homeManagerModules.default
   ];
 
-	services.xremap = {
-		withHypr = true;
-		config = {
-			keymap = [
-				{
-					name = "capslock esc";
-					remap = {
-						"CapsLock" = "Esc";
-					};
-				}
-			];
-		};
-	};
+  services.xremap = {
+    withHypr = true;
+    config = {
+      keymap = [
+        {
+          name = "capslock esc";
+          remap = {
+            "CapsLock" = "Esc";
+          };
+        }
+      ];
+    };
+  };
 
   nixpkgs = {
     # You can add overlays here
@@ -65,14 +65,17 @@
     tree
     bat
     neofetch
-		starship
-		lf
-		duf
-		eza
+    starship
+    lf
+    duf
+    eza
 
-		# lsp
-		lua-language-server
-		nodePackages_latest.typescript-language-server
+    # runtime
+    bun
+
+    # lsp
+    lua-language-server
+    nodePackages_latest.typescript-language-server
   ];
 
   # Add stuff for your user as you see fit:
@@ -82,16 +85,16 @@
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git = {
-		enable = true;
-		userName = "adeyahya";
-		userEmail = "adeyahyaprasetyo@gmail.com";
-	};
-	programs.neovim = {
-		enable = true;
-		defaultEditor = true;
-		viAlias = true;
-		vimAlias = true;
-	};
+    enable = true;
+    userName = "adeyahya";
+    userEmail = "adeyahyaprasetyo@gmail.com";
+  };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

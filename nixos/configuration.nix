@@ -10,14 +10,14 @@
       ./hardware-configuration.nix
     ];
 
-	# bluetooth
-	hardware.bluetooth.enable = true;
-	services.blueman.enable = true;
+  # bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # for xremap
-	hardware.uinput.enable = true;
-	users.groups.uinput.members = [ "adeyahya" ];
-	users.groups.input.members = [ "adeyahya" ];
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [ "adeyahya" ];
+  users.groups.input.members = [ "adeyahya" ];
 
   # enable flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -113,7 +113,7 @@
     libnotify
     rofi-wayland
     kitty
-		alacritty
+    alacritty
     waybar
     kvmtool
   ];
