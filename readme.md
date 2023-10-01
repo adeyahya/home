@@ -6,7 +6,7 @@ this is my first attempt to completely swich from mac to linux using nix-os
 
 ### Editor
 - [x] basic editing
-- [ ] lsp configuration
+- [x] lsp configuration
 - [ ] cmp configuration
 - [ ] telescope
 - [ ] prettier, eslint
