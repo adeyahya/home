@@ -88,6 +88,10 @@
     enable = true;
     userName = "adeyahya";
     userEmail = "adeyahyaprasetyo@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      pull.rebase = true;
+    };
   };
   programs.neovim = {
     enable = true;
