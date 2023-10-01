@@ -39,7 +39,8 @@
         "tray",
         "clock#date",
         "clock#time",
-        "bluetooth"
+        "bluetooth",
+        "custom/pipewire"
     ],
 
 
@@ -148,6 +149,18 @@
           ""  // Icon: temperature-full
       ],
       "tooltip": true
+    },
+
+    "custom/pipewire": {
+      "format": "{icon}",
+      "return-type": "json",
+      "signal": 8,
+      "interval": "once",
+      "format-icons": {
+        "mute": "",
+        "default": ["", "", "󰕾", ""],
+      },
+      "exec": "pw-volume status"
     },
 
     "tray": {
