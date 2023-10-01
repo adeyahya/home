@@ -69,6 +69,10 @@
 		lf
 		duf
 		eza
+
+		# lsp
+		lua-language-server
+		nodePackages_latest.typescript-language-server
   ];
 
   # Add stuff for your user as you see fit:

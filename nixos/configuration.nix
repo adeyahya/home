@@ -10,6 +10,10 @@
       ./hardware-configuration.nix
     ];
 
+	# bluetooth
+	hardware.bluetooth.enable = true;
+	services.blueman.enable = true;
+
   # for xremap
 	hardware.uinput.enable = true;
 	users.groups.uinput.members = [ "adeyahya" ];

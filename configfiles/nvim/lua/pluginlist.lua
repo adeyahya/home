@@ -18,5 +18,14 @@ return {
 				theme = "catppuccin"
 			})
 		end
-	}
+	},
+	"neovim/nvim-lspconfig",
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp"
+		}
+	},
+	-- fix lua vim lsp
+	"folke/neodev.nvim"
 }
