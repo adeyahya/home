@@ -115,7 +115,6 @@
     dunst
     libnotify
     rofi-wayland
-    kitty
     alacritty
     waybar
     kvmtool
@@ -130,6 +129,7 @@
 
     bibata-cursors
     pavucontrol
+    libsForQt5.dolphin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
