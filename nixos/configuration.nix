@@ -19,11 +19,12 @@
   users.groups.uinput.members = [ "adeyahya" ];
   users.groups.input.members = [ "adeyahya" ];
 
-  # enable flakes
+  # enable flake
   nix.settings.experimental-features = ["nix-command" "flakes"];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -55,6 +56,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
@@ -98,6 +100,7 @@
       firefox
       discord
       brave
+      spotify
     ];
   };
 
@@ -117,6 +120,16 @@
     waybar
     kvmtool
     pw-volume
+    fontconfig
+
+    libsForQt5.polkit-kde-agent # authentication dialogue for GUI apps
+    libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
+    networkmanagerapplet
+    blueman
+
+    bibata-cursors
+    pavucontrol
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -152,6 +165,13 @@
     xwayland.enable = true;
   };
 
+  # steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
   environment.sessionVariables = {
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
@@ -160,15 +180,23 @@
   hardware = {
     opengl.enable = true;
   };
+  hardware.opengl.extraPackages = with pkgs; [
+    rocm-opencl-icd
+    rocm-opencl-runtime
+    amdvlk
+  ];
+  hardware.opengl.driSupport = true;
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ 
-    pkgs.xdg-desktop-portal-gtk
+    # pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-hyprland
   ];
 
   fonts.packages = with pkgs; [
+    liberation_ttf
     font-awesome
+    cantarell-fonts
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
 }

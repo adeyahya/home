@@ -8,6 +8,12 @@ return {
     end
   },
   {
+    "xiyaowong/transparent.nvim",
+    config = function ()
+      -- require("transparent").clear_prefix("lualine")
+    end
+  },
+  {
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons"
