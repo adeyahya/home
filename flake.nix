@@ -42,7 +42,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
         modules = with self.homeManagerModules; [
-          core
+          home
         ];
       };
 

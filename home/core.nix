@@ -14,22 +14,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
-    inputs.xremap-flake.homeManagerModules.default
   ];
-
-  services.xremap = {
-    withHypr = true;
-    config = {
-      keymap = [
-        {
-          name = "capslock esc";
-          remap = {
-            "CapsLock" = "Esc";
-          };
-        }
-      ];
-    };
-  };
 
   nixpkgs = {
     # You can add overlays here

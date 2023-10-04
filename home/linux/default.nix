@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./core.nix
-    ./linux
+    ./xremap.nix
   ];
 }
