@@ -5,6 +5,9 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr })
   end
 
+  -- auto format on save
+  vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
   bufmap('<leader>r', vim.lsp.buf.rename)
   bufmap('<leader>a', vim.lsp.buf.code_action)
 
