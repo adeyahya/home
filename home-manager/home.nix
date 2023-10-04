@@ -23,6 +23,9 @@
       keymap = [
         {
           name = "capslock esc";
+          application = {
+            only = "Alacritty";
+          };
           remap = {
             "CapsLock" = "Esc";
           };

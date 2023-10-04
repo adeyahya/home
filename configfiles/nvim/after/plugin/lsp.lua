@@ -4,7 +4,7 @@ local on_attach = function(_, bufnr)
   local bufmap = function(keys, func)
     vim.keymap.set('n', keys, func, { buffer = bufnr })
   end
-  
+
   bufmap('<leader>r', vim.lsp.buf.rename)
   bufmap('<leader>a', vim.lsp.buf.code_action)
 
@@ -12,7 +12,7 @@ local on_attach = function(_, bufnr)
   bufmap('gD', vim.lsp.buf.declaration)
   bufmap('gI', vim.lsp.buf.implementation)
   bufmap('<leader>D', vim.lsp.buf.type_definition)
-  
+
   bufmap('K', vim.lsp.buf.hover)
 
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)

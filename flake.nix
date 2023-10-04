@@ -30,12 +30,25 @@
         ];
       };
     };
+    
+    homeManagerModules = {
+      core = import ./home-manager/home.nix;
+    };
 
     homeConfigurations = {
       home = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
-        modules = [./home-manager/home.nix];
+        modules = with self.homeManagerModules; [
+          core
+        ];
+      };
+
+      mac = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = with self.homeManagerModules; [
+          core
+        ];
       };
     };
   };
