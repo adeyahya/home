@@ -141,7 +141,10 @@
 
     libsForQt5.polkit-kde-agent # authentication dialogue for GUI apps
     libsForQt5.qt5ct
+    libsForQt5.qt5.qtwayland
     libsForQt5.qtstyleplugin-kvantum
+    qt6.full
+    qt6.qtwayland
     networkmanagerapplet
     blueman
 
