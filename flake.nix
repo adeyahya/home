@@ -32,10 +32,12 @@
     };
     
     homeManagerModules = {
-      core = import ./home-manager/home.nix;
+      core = import ./home.nix;
     };
 
     homeConfigurations = {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserpackages = true;
       home = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
