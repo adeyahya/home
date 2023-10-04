@@ -58,12 +58,6 @@
       pull.rebase = true;
     };
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
