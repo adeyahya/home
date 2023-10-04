@@ -31,10 +31,6 @@
       };
     };
     
-    homeManagerModules = {
-      home = import ./home;
-    };
-
     homeConfigurations = {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserpackages = true;
@@ -42,14 +38,14 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
-          ./home
+          ./home/linux.nix
         ];
       };
 
       mac = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = with self.homeManagerModules; [
-          ./home
+          ./home/darwin.nix
         ];
       };
     };
