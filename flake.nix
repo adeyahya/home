@@ -41,15 +41,15 @@
       home = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
-        modules = with self.homeManagerModules; [
-          home
+        modules = [
+          ./home
         ];
       };
 
       mac = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = with self.homeManagerModules; [
-          home
+          ./home
         ];
       };
     };
