@@ -32,7 +32,7 @@
     };
     
     homeManagerModules = {
-      core = import ./home.nix;
+      home = import ./home;
     };
 
     homeConfigurations = {
@@ -49,7 +49,7 @@
       mac = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = with self.homeManagerModules; [
-          core
+          home
         ];
       };
     };
