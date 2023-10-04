@@ -23,9 +23,6 @@
       keymap = [
         {
           name = "capslock esc";
-          application = {
-            only = "Alacritty";
-          };
           remap = {
             "CapsLock" = "Esc";
           };
@@ -79,6 +76,14 @@
     # lsp
     lua-language-server
     nodePackages_latest.typescript-language-server
+    gopls
+
+    ripgrep
+    fzf
+    fd
+
+    # compilers
+    gcc
   ];
 
   # Add stuff for your user as you see fit:

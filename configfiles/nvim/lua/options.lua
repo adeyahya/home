@@ -17,3 +17,6 @@ vim.o.updatetime = 300
 vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
+
+vim.keymap.set("n", ";;", "<cmd>update<cr>", {})
+vim.keymap.set("n", "qq", "<cmd>q<cr>", {})
