@@ -18,7 +18,17 @@ vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
 
+vim.opt.title = true
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.shell = "bash"
+vim.opt.ignorecase = true
+vim.opt.smarttab = true
+vim.opt.breakindent = true
+vim.opt.ai = true -- Auto indent
+
 local keymap = vim.keymap
+local wk = require("wk")
 
 keymap.set("n", ";;", "<cmd>update<cr>", {})
 keymap.set("n", "qq", "<cmd>q<cr>", {})
@@ -26,8 +36,20 @@ keymap.set("n", "qq", "<cmd>q<cr>", {})
 -- select all
 keymap.set('n', '<C-a>', 'gg<S-v>G')
 
+wk.register({
+  t = {
+    name = "Tab Navigation",
+    e = { "<cmd>tabedit<cr>", "New Tab" },
+    h = { "<cmd>tabprevious<cr>", "Prev Tab" },
+    l = { "<cmd>tabnext<cr>", "Next Tab" }
+  }
+})
 -- new tab
-keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
+-- keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
+
+-- navigate tab
+-- keymap.set('n', 'th', ':tabprevious<Return>', { silent = true })
+-- keymap.set('n', 'tl', ':tabnext<Return>', { silent = true })
 
 -- split window
 keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
