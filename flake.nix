@@ -56,6 +56,13 @@
           ./home/darwin.nix
         ];
       };
+
+      mac-office = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = with self.homeManagerModules; [
+          ./home/darwin-office.nix
+        ];
+      };
     };
   };
 }

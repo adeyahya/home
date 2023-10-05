@@ -2,7 +2,8 @@
 {
   imports = [
     ./core.nix
-    ./personal.nix
+    ./xremap.nix
+    ./office.nix
     ./nvim
   ];
 }
