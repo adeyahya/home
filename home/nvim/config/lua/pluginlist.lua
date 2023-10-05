@@ -1,5 +1,8 @@
 return {
   {
+    "preservim/nerdtree"
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
   },
@@ -28,7 +31,7 @@ return {
   },
   {
     "xiyaowong/transparent.nvim",
-    config = function ()
+    config = function()
       -- require("transparent").clear_prefix("lualine")
     end
   },
