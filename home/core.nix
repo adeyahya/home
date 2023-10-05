@@ -17,11 +17,6 @@
     };
   };
 
-  home = {
-    username = "adeyahya";
-    homeDirectory = "/home/adeyahya";
-  };
-
   home.packages = with pkgs; [
     curl
     wget
