@@ -58,6 +58,7 @@
       };
 
       macoffice = home-manager.lib.homeManagerConfiguration {
+	pkgs = nixpkgs.legacyPackages.aarch64-darwin;
         extraSpecialArgs = { inherit inputs outputs; };
         modules = with self.homeManagerModules; [
           ./home/darwin-office.nix
