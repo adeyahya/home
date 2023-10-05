@@ -18,5 +18,24 @@ vim.o.termguicolors = true
 
 vim.o.mouse = 'a'
 
-vim.keymap.set("n", ";;", "<cmd>update<cr>", {})
-vim.keymap.set("n", "qq", "<cmd>q<cr>", {})
+local keymap = vim.keymap
+
+keymap.set("n", ";;", "<cmd>update<cr>", {})
+keymap.set("n", "qq", "<cmd>q<cr>", {})
+
+-- select all
+keymap.set('n', '<C-a>', 'gg<S-v>G')
+
+-- new tab
+keymap.set('n', 'te', ':tabedit<Return>', { silent = true })
+
+-- split window
+keymap.set('n', 'ss', ':split<Return><C-w>w', { silent = true })
+keymap.set('n', 'sv', ':vsplit<Return><C-w>w', { silent = true })
+
+-- navigate window
+keymap.set('n', 'sw', '<C-w>w')
+keymap.set('', 'sh', '<C-w>h')
+keymap.set('', 'sj', '<C-w>j')
+keymap.set('', 'sk', '<C-w>k')
+keymap.set('', 'sl', '<C-w>l')
