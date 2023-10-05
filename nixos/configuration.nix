@@ -19,6 +19,14 @@
   users.groups.uinput.members = [ "adeyahya" ];
   users.groups.input.members = [ "adeyahya" ];
 
+  # docker
+  virtualisation.docker.enable = true;
+  # rootless docker
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   # caching
   nix.settings = {
     trusted-users = [ "adeyahya" ];
@@ -111,7 +119,7 @@
   users.users.adeyahya = {
     isNormalUser = true;
     description = "adeyahya";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
       brave
