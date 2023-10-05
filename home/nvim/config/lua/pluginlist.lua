@@ -1,13 +1,13 @@
 return {
   {
-    "folke/which-key.nvim",
-    config = function()
-      -- vim.o.timeout = true
-      -- vim.o.timeoutlen = 300
-    end
+    "nvim-tree/nvim-tree.lua",
   },
   {
-    "preservim/nerdtree"
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 200
+    end
   },
   {
     "nvim-treesitter/nvim-treesitter",
