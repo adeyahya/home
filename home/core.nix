@@ -36,6 +36,12 @@
     # runtime
     bun
 
+    # htop replacement
+    ttop
+
+    # dashboard
+    wtf
+
     # lsp
     lua-language-server
     nodePackages_latest.typescript-language-server
