@@ -11,7 +11,6 @@
 
     # replacement for ls
     eza.url = "github:eza-community/eza";
-    postman.url = "git+file:./programs/postman";
   };
 
   outputs = {

@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./laptop-hardware.nix
+      ./programs/postman
     ];
 
   # bluetooth
