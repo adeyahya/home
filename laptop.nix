@@ -59,8 +59,15 @@
   };
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.xserver = {
+    enable = true;
+    displayManager = {
+      sddm.enable = true;
+      sddm.theme = "${import ./home/sddm-theme.nix { inherit pkgs; }}";
+    };
+  };
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
 
   programs.hyprland = {
     enable = true;
@@ -174,7 +181,7 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ 
-    # pkgs.xdg-desktop-portal-gtk
+    #pkgs.xdg-desktop-portal-gtk
     pkgs.xdg-desktop-portal-hyprland
   ];
 
