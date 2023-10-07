@@ -131,6 +131,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  environment.shells = with pkgs; [ zsh ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

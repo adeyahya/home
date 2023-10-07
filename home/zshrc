@@ -1,0 +1,9 @@
+eval "$(starship init zsh)"
+export EDITOR="vim"
+
+# alias
+alias ls="eza --icons"
+alias t='tmux'
+alias tls='tmux ls'      # see all the sessions
+alias tn='tmux new -s'   # start a new session
+alias ta='tmux a -t'     # attach back to a session

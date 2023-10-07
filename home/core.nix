@@ -5,6 +5,7 @@
   lib,
   config,
   pkgs,
+  environment,
   ...
 }: {
   nixpkgs = {
@@ -22,8 +23,11 @@
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
-
-
+  # copy zshrc to home
+  home.file.".zshrc" = {
+    source = ./zshrc;
+  };
+  
   home.packages = with pkgs; [
     curl
     wget

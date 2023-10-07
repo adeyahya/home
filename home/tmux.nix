@@ -1,6 +1,5 @@
 { ... }:
 {
-    # tmux
   programs.tmux = {
     enable = true;
     plugins = [];
