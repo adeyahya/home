@@ -1,5 +1,12 @@
 { pkgs }:
+let
+  imgLink = "https://github.com/adeyahya/home/blob/main/home/assets/wall.jpg?raw=true";
 
+  image = pkgs.fetchurl {
+    url = imgLink;
+    sha256 = "6cbe8bc29b0f0f607dbba4deb9f16105b915d1907d6a3e0c51bccb8f1aa88f62";
+  };
+in
 pkgs.stdenv.mkDerivation {
   name = "sddm-theme";
   src = pkgs.fetchFromGitHub {
@@ -11,5 +18,7 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out
     cp -R src/catppuccin-mocha/* $out/
+    cp -r ${image} $out/backgrounds/wall.jpg
+    sed -i 's/CustomBackground="false"/CustomBackground="true"/g' $out/theme.conf
   '';
 }
