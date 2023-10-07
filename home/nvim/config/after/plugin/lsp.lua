@@ -1,9 +1,13 @@
+local navic = require("nvim-navic")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local on_attach = function(_, bufnr)
   local bufmap = function(keys, func)
     vim.keymap.set('n', keys, func, { buffer = bufnr })
   end
+
+  -- breadcrumb
+  navic.attach(_, bufnr)
 
   -- auto format on save
   vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
@@ -28,7 +32,7 @@ local lspconfig = require("lspconfig")
 -- todo: run neodev only when opening file lua
 require("neodev").setup()
 
-lspconfig.lua_ls.setup  {
+lspconfig.lua_ls.setup {
   on_attach = function(_, bufnr)
     on_attach(_, bufnr)
   end,

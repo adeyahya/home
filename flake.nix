@@ -7,6 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     xremap-flake.url = "github:xremap/nix-flake";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # replacement for ls
     eza.url = "github:eza-community/eza";
@@ -16,6 +17,7 @@
     self,
     nixpkgs,
     home-manager,
+    nixos-hardware,
     ...
   }@inputs:
   let
@@ -27,6 +29,14 @@
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/configuration.nix
+        ];
+      };
+
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./laptop.nix
+          nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
         ];
       };
     };

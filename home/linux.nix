@@ -5,5 +5,6 @@
     ./xremap.nix
     ./personal.nix
     ./nvim
+    ./tmux
   ];
 }

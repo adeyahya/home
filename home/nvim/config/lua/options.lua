@@ -45,3 +45,9 @@ keymap.set('', 'sh', '<C-w>h')
 keymap.set('', 'sj', '<C-w>j')
 keymap.set('', 'sk', '<C-w>k')
 keymap.set('', 'sl', '<C-w>l')
+
+-- indentation
+keymap.set('x', 'J', ":move '>+1<CR>gv-gv", {})
+keymap.set('x', 'K', ":move '<-2<CR>gv-gv", {})
+keymap.set('x', 'L', '>gv', {})
+keymap.set('x', 'H', '<gv', {})

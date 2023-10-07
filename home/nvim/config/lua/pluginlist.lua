@@ -1,4 +1,15 @@
 return {
+  --comment
+  {
+    "tpope/vim-commentary"
+  },
+  -- breadcrumb
+  {
+    "SmiteshP/nvim-navic",
+    dependencies = {
+      "neovim/nvim-lspconfig"
+    }
+  },
   {
     "nvim-tree/nvim-tree.lua",
   },
@@ -6,7 +17,7 @@ return {
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 200
+      vim.o.timeoutlen = 1000
     end
   },
   {
