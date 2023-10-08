@@ -1,8 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
-    plugins = [];
+    plugins = with pkgs.tmuxPlugins; [
+      catppuccin
+      sensible
+      resurrect
+    ];
     extraConfig = ''
       set -g default-terminal "xterm-256color"
       
