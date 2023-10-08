@@ -134,6 +134,8 @@
     libnotify
     rofi-wayland
     alacritty
+    kitty
+    rio
     waybar
     kvmtool
     pw-volume
@@ -195,7 +197,7 @@
     font-awesome
     cantarell-fonts
     work-sans
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "Hack" "FiraCode" "JetBrainsMono" ]; })
   ];
 
   programs.dconf.enable = true;

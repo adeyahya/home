@@ -7,11 +7,11 @@ env:
 font:
   size: 14
   normal:
-    family: "FiraCode Nerd Font"
+    family: "Hack Nerd Font Mono"
   bold:
-    family: "FiraCode Nerd Font"
+    family: "Hack Nerd Font Mono"
   italic:
-    family: "FiraCode Nerd Font"
+    family: "Hack Nerd Font Mono"
 
 window:
   opacity: 0.9
