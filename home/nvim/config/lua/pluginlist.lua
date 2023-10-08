@@ -1,4 +1,8 @@
 return {
+  {
+    "akinsho/toggleterm.nvim",
+    config = true
+  },
   --comment
   {
     "tpope/vim-commentary"

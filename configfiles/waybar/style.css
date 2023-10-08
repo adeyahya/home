@@ -10,7 +10,8 @@
 @import "themes/theme.css";
 
 window#waybar {
-    background: @bar-bg;
+    /* background: @bar-bg; */
+  background: #000000;
 }
 
 tooltip {
@@ -25,9 +26,9 @@ tooltip {
 	  text-shadow: none;
     padding: 0px;
     border-radius: 9px;
-    margin: 3px;
-    padding-left: 3px;
-    padding-right: 3px;
+    /* margin: 3px; */
+    /* padding-left: 3px; */
+    /* padding-right: 3px; */
     color: @wb-act-fg;
 }
 

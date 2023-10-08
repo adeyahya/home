@@ -29,6 +29,7 @@
   };
   
   home.packages = with pkgs; [
+    httpie
     curl
     wget
     tree

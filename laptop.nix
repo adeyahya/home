@@ -9,7 +9,6 @@
     [ # Include the results of the hardware scan.
       ./laptop-hardware.nix
     ];
-
   # bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -62,12 +61,12 @@
   services.xserver = {
     enable = true;
     displayManager = {
-      sddm.enable = true;
+      sddm.enable = false;
       sddm.theme = "${import ./home/sddm-theme.nix { inherit pkgs; }}";
     };
   };
-  services.xserver.displayManager.gdm.enable = false;
-  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -109,6 +108,7 @@
       brave
       discord
       spotify
+      dbeaver
     ];
   };
 
@@ -124,8 +124,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    appimage-run
     home-manager
+    swww
     killall
+    brightnessctl
 
     dunst
     libnotify
@@ -155,6 +158,8 @@
     pritunl-client
     tailscale
     tailscale-systray
+    gnome.adwaita-icon-theme 
+    gnomeExtensions.appindicator 
   ];
 
   services.tailscale.enable = true;
@@ -192,6 +197,18 @@
     work-sans
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
+
+  programs.dconf.enable = true;
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  services.dbus.packages = with pkgs; [ gnome2.GConf ];
+  boot.binfmt.registrations.appimage = {
+    wrapInterpreterInShell = false;
+    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+    recognitionType = "magic";
+    offset = 0;
+    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
+    magicOrExtension = ''\x7fELF....AI\x02'';
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
