@@ -44,7 +44,7 @@
     bun
 
     # htop replacement
-    ttop
+    # ttop
 
     # dashboard
     wtf
