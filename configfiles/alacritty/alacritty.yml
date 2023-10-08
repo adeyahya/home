@@ -5,13 +5,13 @@ env:
   TERM: xterm-256color
 
 font:
-  size: 13
+  size: 14
   normal:
-    family: "JetBrainsMono Nerd Font"
+    family: "FiraCode Nerd Font"
   bold:
-    family: "JetbrainsMono Nerd Font"
+    family: "FiraCode Nerd Font"
   italic:
-    family: "JetbrainsMono Nerd Font"
+    family: "FiraCode Nerd Font"
 
 window:
   opacity: 0.9
