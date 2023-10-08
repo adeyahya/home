@@ -7,11 +7,11 @@ env:
 font:
   size: 14
   normal:
-    family: "Hack Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font"
   bold:
-    family: "Hack Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font"
   italic:
-    family: "Hack Nerd Font Mono"
+    family: "JetBrainsMono Nerd Font"
 
 window:
   opacity: 0.9
