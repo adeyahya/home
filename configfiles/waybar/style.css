@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0px;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
+    font-family: "Fira Code Nerd Font";
+    font-weight: normal;
     font-size: 18px;
     min-height: 10px;
 }
@@ -11,7 +11,7 @@
 
 window#waybar {
     /* background: @bar-bg; */
-  background: #000000;
+  background: rgba(0,0,0,0.9);
 }
 
 tooltip {
@@ -87,7 +87,7 @@ tooltip {
 #custom-game-mode,
 #custom-code-mode {
     color: @main-fg;
-    background: @main-bg;
+    /* background: @main-bg; */
     opacity: 1;
     margin: 4px 0px 4px 0px;
     padding-left: 10px;
@@ -102,7 +102,7 @@ tooltip {
 #custom-rl_end,
 #custom-rr_end {
   color: @main-fg;
-  background: @main-bg;
+  /* background: @main-bg; */
   opacity: 1;
   margin: 4px -6px 4px -6px;
 }

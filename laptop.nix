@@ -66,7 +66,7 @@
     };
   };
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = false;
 
   programs.hyprland = {
     enable = true;
@@ -80,7 +80,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable sound with pipewire.
   # sound.enable = true;
@@ -121,8 +121,8 @@
   environment.systemPackages = with pkgs; [
     appimage-run
     home-manager
-    swww
-    killall
+    hyprpaper
+    nwg-look
     brightnessctl
 
     dunst
@@ -177,7 +177,7 @@
   hardware.opengl.extraPackages = with pkgs; [
     rocm-opencl-icd
     rocm-opencl-runtime
-    amdvlk
+    #amdvlk
   ];
   hardware.opengl.driSupport = true;
 
@@ -192,10 +192,11 @@
     font-awesome
     cantarell-fonts
     work-sans
+    fira
     (nerdfonts.override { fonts = [ "Hack" "FiraCode" "JetBrainsMono" ]; })
   ];
 
-  programs.dconf.enable = true;
+  # programs.dconf.enable = true;
   # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   # services.dbus.packages = with pkgs; [ gnome2.GConf ];
   boot.binfmt.registrations.appimage = {
