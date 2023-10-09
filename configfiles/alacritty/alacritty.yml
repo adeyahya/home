@@ -7,11 +7,11 @@ env:
 font:
   size: 13
   normal:
-    family: "FiraCode Nerd Font"
+    family: "cascadia code"
   bold:
-    family: "FiraCode Nerd Font"
+    family: "cascadia code"
   italic:
-    family: "FiraCode Nerd Font"
+    family: "cascadia code"
 
 window:
   opacity: 0.8

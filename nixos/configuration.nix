@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   imports =
@@ -119,15 +119,48 @@
   users.users.adeyahya = {
     isNormalUser = true;
     description = "adeyahya";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "qemu-libvirtd" "libvirtd" "kvm" ];
     packages = with pkgs; [
-      firefox
+      discord
       brave
       spotify
       slack
       google-chrome
     ];
   };
+
+  # gnome
+  programs.dconf.enable = lib.mkDefault true;
+
+  #Dirs
+  environment.etc."xdg/user-dirs.defaults".text= ''
+  DESKTOP=$HOME/Desktop
+  DOWNLOAD=$HOME/Downloads
+  TEMPLATES=$HOME/Templates
+  PUBLICSHARE=$HOME/Public
+  DOCUMENTS=$HOME/Documents
+  MUSIC=$HOME/Music
+  PICTURES=$HOME/Photos
+  VIDEOS=$HOME/Video 
+  '';
+
+  #thunar dencies
+  programs.thunar.plugins = with pkgs.xfce; [
+    thunar-archive-plugin
+    thunar-volman
+  ];
+  services.gvfs.enable = true; 
+  services.tumbler.enable = true;
+
+  #Overlays
+  #Waybar wlr/Workspaces
+  nixpkgs.overlays = [
+    (self: super: {
+      waybar = super.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      });
+    })
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -136,13 +169,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    appimage-run
     home-manager
-    killall
+    hyprpaper
+    nwg-look
+    brightnessctl
 
     dunst
     libnotify
-    rofi-wayland
     alacritty
+    kitty
+    rio
     waybar
     kvmtool
     pw-volume
@@ -156,50 +193,59 @@
     qt6.qtwayland
     networkmanagerapplet
     blueman
+    wl-clipboard
 
     bibata-cursors
     pavucontrol
-    libsForQt5.dolphin
-
-    # editor
-    vscode.fhs
-    dbeaver
 
     # vpn
     networkmanager-fortisslvpn
     pritunl-client
     tailscale
     tailscale-systray
+    gnome.adwaita-icon-theme 
+    gnomeExtensions.appindicator 
+    swaylock-effects swayidle wlogout swaybg  #Login etc..  
+
+    wayland-protocols
+    libsForQt5.qt5.qtwayland
+    kanshi                                    #laptop dncies
+    rofi-wayland mako rofimoji                        #Drawer + notifications
+    jellyfin-ffmpeg                           #multimedia libs
+    viewnior                                  #image viewr
+    xfce.thunar                               #filemanager
+    xfce.xfconf
+    gnome.file-roller
+    gnome.gnome-font-viewer
+    gnome.gnome-calculator
+    vlc                                       #Video player
+    amberol                                   #Music player
+    cava                                      #Sound Visualized
+    wl-clipboard                              
+    wf-recorder                               #Video recorder
+    sway-contrib.grimshot                     #Screenshot
+    ffmpegthumbnailer                         #thumbnailer
+    playerctl                                 #play,pause..
+    pamixer                                   #mixer
+    brightnessctl                             #Brightness control
+    ####GTK Customization####
+    nordic
+    papirus-icon-theme
+    gtk3
+    glib
+    xcur2png
+    rubyPackages.glib2
+    libcanberra-gtk3                          #notification sound
+    #########System#########
+    gnome.gnome-system-monitor
+    poweralertd
+    dbus
+    ####photoshop dencies####
+    gnome.zenity
+    wine64Packages.waylandFull
   ];
 
   services.tailscale.enable = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
 
   # program definition
   programs.hyprland = {
@@ -236,12 +282,50 @@
   ];
 
   fonts.packages = with pkgs; [
+    cascadia-code
     liberation_ttf
     font-awesome
     cantarell-fonts
     work-sans
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    fira
+    (nerdfonts.override { fonts = [ "Hack" "FiraCode" "JetBrainsMono" ]; })
   ];
+
+  boot.binfmt.registrations.appimage = {
+    wrapInterpreterInShell = false;
+    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+    recognitionType = "magic";
+    offset = 0;
+    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
+    magicOrExtension = ''\x7fELF....AI\x02'';
+  };
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "23.05"; # Did you read the comment?
 }
 
 
