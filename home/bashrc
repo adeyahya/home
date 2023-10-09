@@ -142,6 +142,7 @@ source "$OSH"/oh-my-bash.sh
 # alias ohmybash="mate ~/.oh-my-bash"
 eval "$(starship init bash)"
 export EDITOR="vim"
+export COLORTERM=truecolor
 
 # alias
 alias ls="eza --icons"

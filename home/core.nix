@@ -24,7 +24,7 @@
   };
 
   home.file.".bashrc" = {
-    source = ./bashrc
+    source = ./bashrc;
   };
   # copy zshrc to home
   home.file.".zshrc" = {

@@ -8,7 +8,10 @@
       resurrect
     ];
     extraConfig = ''
-      set -g default-terminal "xterm-256color"
+      set -g default-terminal "rio"
+      set-option -ga terminal-overrides ",rio:Tc"
+      set -g default-terminal "screen-256color"
+      set-option -ga terminal-overrides ",screen-256color:Tc"
       
       # mouse mode
       set -g mouse on

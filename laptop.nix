@@ -116,12 +116,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh = {
-    enable = true;
-  };
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -202,8 +196,8 @@
   ];
 
   programs.dconf.enable = true;
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  services.dbus.packages = with pkgs; [ gnome2.GConf ];
+  # services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  # services.dbus.packages = with pkgs; [ gnome2.GConf ];
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
