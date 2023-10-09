@@ -109,6 +109,7 @@
       discord
       spotify
       dbeaver
+      slack
     ];
   };
 
