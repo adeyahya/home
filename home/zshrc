@@ -1,5 +1,6 @@
 eval "$(starship init zsh)"
 export EDITOR="vim"
+export NIX_BUILD_SHELL="$(which zsh)"
 
 # alias
 alias ls="eza --icons"

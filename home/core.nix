@@ -23,6 +23,9 @@
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
+  home.file.".bashrc" = {
+    source = ./bashrc
+  };
   # copy zshrc to home
   home.file.".zshrc" = {
     source = ./zshrc;
