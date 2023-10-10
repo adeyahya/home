@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./programs
     ./core.nix
     ./xremap.nix
     ./personal.nix

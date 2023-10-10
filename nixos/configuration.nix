@@ -126,6 +126,7 @@
       spotify
       slack
       google-chrome
+      # (pkgs.callPackage ./httpie.nix { inherit pkgs lib; } )
     ];
   };
 
