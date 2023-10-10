@@ -1,4 +1,5 @@
 return {
+  "andweeb/presence.nvim",
   {
     "goolord/alpha-nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
