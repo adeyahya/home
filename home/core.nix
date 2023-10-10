@@ -32,6 +32,7 @@
   };
   
   home.packages = with pkgs; [
+    libuv
     httpie
     curl
     wget

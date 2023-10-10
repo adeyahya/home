@@ -46,6 +46,7 @@ lspconfig.lua_ls.setup {
 lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  root_dir = require('lspconfig.util').root_pattern('.git')
 }
 
 lspconfig.gopls.setup {

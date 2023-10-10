@@ -1,5 +1,21 @@
 return {
   {
+    "goolord/alpha-nvim",
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('alpha').setup(require('alpha.themes.startify').config)
+    end
+  },
+  {
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+    keys = { -- load the plugin only when using it's keybinding:
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+    },
+  },
+  "lewis6991/gitsigns.nvim",
+  {
     "akinsho/toggleterm.nvim",
     config = true
   },
@@ -35,14 +51,22 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+  -- themes
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "rebelot/kanagawa.nvim",
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "catppuccin-mocha"
+      require("kanagawa").load("dragon")
     end
   },
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme "catppuccin-mocha"
+  --   end
+  -- },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -54,7 +78,7 @@ return {
   {
     "xiyaowong/transparent.nvim",
     config = function()
-      -- require("transparent").clear_prefix("lualine")
+      require("transparent").clear_prefix("lualine")
     end
   },
   {
@@ -65,7 +89,7 @@ return {
     config = function()
       require("lualine").setup({
         icons_enabled = true,
-        theme = "catppuccin"
+        theme = "kanagawa-dragon"
       })
     end
   },
