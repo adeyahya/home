@@ -7,8 +7,8 @@ this is my first attempt to completely swich from mac to linux using nix-os
 ### Editor
 - [x] basic editing
 - [x] lsp configuration
-- [ ] cmp configuration
-- [ ] telescope
+- [x] cmp configuration
+- [x] telescope
 - [ ] prettier, eslint
 - [ ] sql https://www.youtube.com/watch?v=NhTPVXP8n7w
 

@@ -7,39 +7,6 @@
       resurrect
     ];
     extraConfig = ''
-      thm_bg="#16161d"
-      thm_fg="#dcd7ba"
-      thm_cyan="#6a9589"
-      thm_black="#090618"
-      thm_gray="#363646"
-      thm_magenta="#957fb8"
-      thm_pink="#938aa9"
-      thm_red="#c34043"
-      thm_green="#76946a"
-      thm_yellow="#c0a36e"
-      thm_blue="#7e9cd8"
-      thm_orange="#ffa066"
-      thm_altblack="#727169"
-
-      set status "on"
-      set status-bg "${thm_bg}"
-      set status-justify "left"
-      set status-left-length "100"
-      set status-right-length "100"
-
-      # messages
-      set message-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
-      set message-command-style "fg=${thm_cyan},bg=${thm_gray},align=centre"
-
-      # panes
-      set pane-border-style "fg=${thm_gray}"
-      set pane-active-border-style "fg=${thm_blue}"
-
-      # windows
-      setw window-status-activity-style "fg=${thm_fg},bg=${thm_bg},none"
-      setw window-status-separator ""
-      setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
-
       set -g default-terminal "rio"
       set-option -ga terminal-overrides ",rio:Tc"
       set -g default-terminal "screen-256color"

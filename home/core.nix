@@ -32,6 +32,7 @@
   };
   
   home.packages = with pkgs; [
+    nushell
     libuv
     httpie
     curl
