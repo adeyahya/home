@@ -13,6 +13,7 @@
   # bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  services.flatpak.enable = true;
 
   # for xremap
   hardware.uinput.enable = true;
@@ -121,6 +122,7 @@
     description = "adeyahya";
     extraGroups = [ "networkmanager" "wheel" "docker" "qemu-libvirtd" "libvirtd" "kvm" ];
     packages = with pkgs; [
+      android-studio
       discord
       brave
       spotify
@@ -170,6 +172,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    solaar
     appimage-run
     home-manager
     hyprpaper

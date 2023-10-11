@@ -32,6 +32,7 @@
   };
   
   home.packages = with pkgs; [
+    helix
     nushell
     libuv
     curl

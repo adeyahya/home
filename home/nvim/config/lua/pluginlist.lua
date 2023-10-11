@@ -1,4 +1,9 @@
 return {
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}
+  },
   "andweeb/presence.nvim",
   {
     "goolord/alpha-nvim",
@@ -52,22 +57,14 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
-  -- themes
   {
-    "rebelot/kanagawa.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      require("kanagawa").load("dragon")
+      vim.cmd.colorscheme "catppuccin-mocha"
     end
   },
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme "catppuccin-mocha"
-  --   end
-  -- },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -90,7 +87,7 @@ return {
     config = function()
       require("lualine").setup({
         icons_enabled = true,
-        theme = "kanagawa-dragon"
+        theme = "catpuccin"
       })
     end
   },
