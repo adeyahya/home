@@ -32,6 +32,7 @@
   };
   
   home.packages = with pkgs; [
+    xplr
     lazygit
     helix
     nushell
