@@ -15,7 +15,7 @@ font:
     family: "cascadia code"
 
 window:
-  opacity: 0.95
+  opacity: 1
   padding:
     x: 10
     y: 10
