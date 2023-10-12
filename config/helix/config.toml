@@ -16,6 +16,9 @@ hidden = false
 
 [keys.normal.space]
 
+[keys.normal.f]
+f = "file_picker_in_current_buffer_directory"
+
 [keys.normal]
 q = ":quit"
 "?" = "command_palette"
