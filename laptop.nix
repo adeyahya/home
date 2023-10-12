@@ -13,6 +13,11 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-wayland;
+  };
+
   # for xremap
   hardware.uinput.enable = true;
   users.groups.uinput.members = [ "adeyahya" ];
@@ -119,6 +124,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    speechd
+    alacritty
     appimage-run
     home-manager
     hyprpaper
@@ -157,6 +164,44 @@
     tailscale-systray
     gnome.adwaita-icon-theme 
     gnomeExtensions.appindicator 
+    swaylock-effects swayidle wlogout swaybg  #Login etc..  
+
+    wayland-protocols
+    libsForQt5.qt5.qtwayland
+    kanshi                                    #laptop dncies
+    rofi-wayland mako rofimoji                        #Drawer + notifications
+    jellyfin-ffmpeg                           #multimedia libs
+    viewnior                                  #image viewr
+    xfce.thunar                               #filemanager
+    xfce.xfconf
+    gnome.file-roller
+    gnome.gnome-font-viewer
+    gnome.gnome-calculator
+    vlc                                       #Video player
+    amberol                                   #Music player
+    cava                                      #Sound Visualized
+    wl-clipboard                              
+    wf-recorder                               #Video recorder
+    sway-contrib.grimshot                     #Screenshot
+    ffmpegthumbnailer                         #thumbnailer
+    playerctl                                 #play,pause..
+    pamixer                                   #mixer
+    brightnessctl                             #Brightness control
+    ####GTK Customization####
+    nordic
+    papirus-icon-theme
+    gtk3
+    glib
+    xcur2png
+    rubyPackages.glib2
+    libcanberra-gtk3                          #notification sound
+    #########System#########
+    gnome.gnome-system-monitor
+    poweralertd
+    dbus
+    ####photoshop dencies####
+    gnome.zenity
+    wine64Packages.waylandFull
   ];
 
   services.tailscale.enable = true;
@@ -169,6 +214,7 @@
   environment.sessionVariables = {
     # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 
   hardware = {
@@ -188,6 +234,7 @@
   ];
 
   fonts.packages = with pkgs; [
+    cascadia-code
     liberation_ttf
     font-awesome
     cantarell-fonts
