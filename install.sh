@@ -13,7 +13,7 @@ fi
 for item in "$config_dir"/*; do
   if [ -e "$item" ]; then
     absolute_path="$(readlink -f "$item")"
-    item_dir_name="${item/$config_dir\//""}"
+    item_dir_name="${item/$config_dir\//}"
 
     if [ -e "$home_config_dir/$item_dir_name" ]; then
       rm -rf "$home_config_dir/$item_dir_name"
