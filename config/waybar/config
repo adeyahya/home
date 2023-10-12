@@ -1,9 +1,9 @@
 {
     "height": 20, // Waybar height (to be removed for auto height)
     "layer": "top", // Waybar at top layer
-    "modules-left": ["custom/launcher","temperature", "cpu", "memory", "custom/weather", "hyprland/workspaces"],
+    "modules-left": ["custom/launcher","temperature", "cpu", "memory", "hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
-    "modules-right": [ "network", "pulseaudio", "battery", "clock", "tray", "custom/power-menu"],
+    "modules-right": [ "network", "pulseaudio", "battery", "tray", "clock" ],
     "hyprland/workspaces": {
       "format": "{icon}",
       "all-outputs": true,
@@ -20,8 +20,8 @@
       "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%b %d %Y}",
+        "format-alt": "{:%H:%M}",
+        "format": "{:%b %d %Y %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
 
@@ -96,8 +96,8 @@
       },
       "max-length": 20,
       "format": "{icon} ",
-      "format-warning": "{icon} {capacity}%",
-      "format-critical": "{icon} {capacity}%",
+      "format-warning": "{icon}",
+      "format-critical": "{icon}",
       "format-charging": "<span font-family='Font Awesome 6 Free'></span>",
       "format-plugged": "󰚥", 
       "format-notcharging": "󰚥",
