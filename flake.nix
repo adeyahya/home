@@ -50,6 +50,7 @@
         modules = [
           ./home/desktop.nix
           ./home/linux.nix
+          ./scripts
         ];
       };
 
@@ -58,6 +59,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [
           ./home/server.nix
+          ./scripts
         ];
       };
 
@@ -65,6 +67,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
         modules = with self.homeManagerModules; [
           ./home/darwin.nix
+          ./scripts
         ];
       };
 
