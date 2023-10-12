@@ -26,7 +26,9 @@ f = "file_picker"
 
 [keys.normal]
 # a hack to utilize lf as file tree picker
-C-e = [":new", ":insert-output lf-pick", ":theme default", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!", ":theme base16_transparent"]
+# C-e = [":new", ":insert-output lf-pick", ":theme default", "select_all", "split_selection_on_newline", "goto_file", "goto_last_modified_file", ":buffer-close!", ":theme base16_transparent"]
+# C-e = [":new", ":pipe lf-pick"]
+C-g = ":sh tmux popup -d \"#{pane_current_path}\" -xc -yC -w80% -h80% -E lazygit"
 q = ":quit"
 "?" = "command_palette"
 X = "extend_line_above"
