@@ -48,6 +48,7 @@
     eza
 
     # runtime
+    nodejs_18
     bun
 
     # htop replacement
