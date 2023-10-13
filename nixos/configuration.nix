@@ -32,7 +32,6 @@
   nix.settings = {
     trusted-users = [ "adeyahya" ];
     substituters = [
-      "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://cache.nixos.org/"
     ];
 
