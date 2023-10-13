@@ -21,8 +21,8 @@ hidden = false
 
 [keys.normal.space]
 
-[keys.normal.f]
-f = "file_picker"
+# [keys.normal.f]
+# f = "file_picker"
 
 [keys.normal]
 C-g = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lazygit"
@@ -32,8 +32,8 @@ q = ":quit"
 X = "extend_line_above"
 G = "goto_file_end"
 
-[keys.normal.g]
-c = "toggle_comments"
+# [keys.normal.g]
+# c = "toggle_comments"
 
 [keys.normal.";"]
 ";" = ":write"
