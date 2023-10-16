@@ -171,7 +171,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    solaar
     appimage-run
     home-manager
     hyprpaper
