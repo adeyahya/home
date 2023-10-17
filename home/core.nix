@@ -62,6 +62,7 @@
     lua-language-server
     nodePackages_latest.typescript-language-server
     gopls
+    efm-langserver
 
     ripgrep
     fzf
